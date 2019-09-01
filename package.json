@@ -5,6 +5,9 @@
   "repository": "https://github.com/nayaksanjay99/chatServer.git",
   "author": "Sanjay <sanjayjnayak99@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start":"node app.js",
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",

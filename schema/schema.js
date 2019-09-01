@@ -24,9 +24,9 @@ const RootQuery=new GraphQLObjectType({
     fields:{
         UsersList:{
             type:UsersListType,
-            args:{id:GraphQLID},
+            args:{id:{type:GraphQLID}},
             resolve(parent, args){
-                return User.find({})
+                return {} //User.find({})
             }  
         }
     }

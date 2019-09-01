@@ -6,6 +6,8 @@ const cors=require('cors')
 
 const app=express()
 
+const PORT=process.env.PORT||4000
+
 mongoose.connect("mongodb://sanjay:nayak123@ds047742.mlab.com:47742/alagchat")
 mongoose.connection.once('open',()=>{
     console.log('Connected to database')
@@ -18,6 +20,6 @@ app.use('/graphql',graphqlHTTP({
     graphiql:true
 }))
 
-app.listen(4000,()=>{
-    console.log("Listening at 4000")
+app.listen(PORT,()=>{
+    console.log(`Listening at ${PORT}`)
 })

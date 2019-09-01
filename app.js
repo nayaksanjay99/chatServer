@@ -1,8 +1,10 @@
 const express=require('express')
 const graphqlHTTP=require('express-graphql')
-const schema=require('./schema/schema')
+const schema=require('./libs/schema/schema')
 const mongoose=require('mongoose')
 const cors=require('cors')
+const auth=require('./libs/controllers/auth')
+const isAuth=require('./libs/middlewares/isAuth')
 
 const app=express()
 
@@ -15,7 +17,12 @@ mongoose.connection.once('open',()=>{
 
 app.use(cors())
 
-app.use('/graphql',graphqlHTTP({
+app.post('/login', auth.login_handler)
+
+app.post('/signup', auth.signup_handler)
+
+//use isAuth middleware
+app.use('/graphql', graphqlHTTP({
     schema,
     graphiql:true
 }))

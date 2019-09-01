@@ -6,7 +6,7 @@ const cors=require('cors')
 
 const app=express()
 
-mongoose.connect("mongodb://sanjay:nayak123@ds253857.mlab.com:53857/alagchat")
+mongoose.connect("mongodb://sanjay:nayak123@ds047742.mlab.com:47742/alagchat")
 mongoose.connection.once('open',()=>{
     console.log('Connected to database')
 })

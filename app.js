@@ -17,6 +17,8 @@ mongoose.connection.once('open',()=>{
 
 app.use(cors())
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.post('/login', auth.login_handler)
 
 app.post('/signup', auth.signup_handler)

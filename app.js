@@ -5,6 +5,7 @@ const mongoose=require('mongoose')
 const cors=require('cors')
 const auth=require('./libs/controllers/auth')
 const isAuth=require('./libs/middlewares/isAuth')
+const bodyParser=require('body-parser')
 
 const app=express()
 
@@ -17,7 +18,7 @@ mongoose.connection.once('open',()=>{
 
 app.use(cors())
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.post('/login', auth.login_handler)
 
